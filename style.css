@@ -1,0 +1,419 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap');
+:root{--pink:#f8dde5;--deep:#c87996;--black:#242124;--gray:#88838a;--white:#fffdfd}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--black);background:var(--white);font-family:'DM Sans',sans-serif}
+button{font:inherit;cursor:pointer}.topbar{position:absolute;z-index:5;top:0;left:0;width:100%;display:flex;justify-content:space-between;align-items:center;padding:22px clamp(20px,6vw,76px)}
+.brand{color:var(--black);text-decoration:none;font:1.1rem 'Playfair Display',serif}.brand span{color:var(--deep)}
+.music-toggle{border:1px solid #e7d5dc;border-radius:30px;padding:9px 14px;background:#ffffffb8;color:var(--black)}
+.screen{display:none;min-height:100svh}.screen.active{display:flex;animation:fade .55s ease}
+.hero{position:relative;overflow:hidden;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:110px 22px 70px;background:radial-gradient(ellipse at center,#fff 0%,#fff8fa 45%,var(--pink) 100%)}
+.hero:before,.hero:after{content:'♡';position:absolute;color:#d89ab0;font-size:11rem;opacity:.12}.hero:before{top:-40px;right:-20px}.hero:after{bottom:-70px;left:-20px}
+.eyebrow{font-size:.66rem;font-weight:700;letter-spacing:.2em;color:#9d6b7d}.flower{font-size:2.8rem;color:#d88ca6;margin:20px 0 8px;animation:float 4s infinite}.script{color:#9d7584;font:italic 1.15rem 'Playfair Display',serif}
+h1,h2{font-family:'Playfair Display',serif;font-weight:500;letter-spacing:-.035em;line-height:1.12}h1{font-size:clamp(3rem,9vw,6.5rem);margin:10px 0 18px}h1 span,em{color:var(--deep);font-style:italic}h1 i{color:var(--deep);font-size:.35em}
+.hero-copy,.intro{max-width:460px;color:#756d73;line-height:1.8;font-size:.95rem}.primary{display:inline-flex;gap:18px;align-items:center;justify-content:center;min-height:52px;padding:0 25px;border:0;border-radius:40px;background:var(--black);color:white;box-shadow:0 10px 25px #24212420;transition:.2s}.primary:hover{transform:translateY(-2px);background:#4a3c43}.primary span{color:#f6cbd8}.hint{font-size:.74rem;color:#a39aa0;margin-top:18px}
+.section{flex-direction:column;align-items:center;text-align:center;padding:115px clamp(18px,7vw,90px) 70px}.section h2,.flower-screen h2,.letter h2{font-size:clamp(2.3rem,6vw,4rem);margin:14px 0}.intro{margin:0 auto 38px;color:var(--gray)}
+.photos{width:min(100%,920px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;align-items:start}
+.photos figure{margin:0;padding:9px 9px 15px;background:white;border:1px solid #f0e8eb;box-shadow:0 18px 55px #452b360f;transform:rotate(-1deg)}.photos figure:nth-child(even){transform:rotate(1.4deg);margin-top:28px}
+.photos img,.placeholder{width:100%;aspect-ratio:4/4.8;object-fit:cover;background:#fff0f5}.placeholder{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:10px;color:#b97c91;background:linear-gradient(145deg,#fff4f7,#f6dce5)}.placeholder b{letter-spacing:.12em}.placeholder small{font-size:.68rem;color:#a28a93}.photos figcaption{padding:12px 4px 0;color:#73646b;font: .85rem 'Playfair Display',serif}
+.next{margin-top:44px}.blush{background:linear-gradient(#fffdfd,#fff3f6)}.reasons{width:min(100%,740px);display:grid;gap:13px;text-align:left}.reasons article{display:grid;grid-template-columns:35px 1fr 20px;gap:14px;align-items:start;padding:22px;border:1px solid #f0e2e7;border-radius:15px;background:#ffffffd9}.reasons article>span{color:#c67f98;font:1.1rem 'Playfair Display',serif}.reasons h3{font:600 1.2rem 'Playfair Display',serif;margin:0 0 6px}.reasons p{margin:0;color:var(--gray);font-size:.9rem;line-height:1.7}.reasons article>div+span{color:var(--deep)}
+.flower-screen{position:relative;overflow:hidden;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 22px 70px;background:linear-gradient(140deg,#fff9fb,#f8dde5)}.flower-screen:before,.flower-screen:after{content:'';position:absolute;width:min(80vw,600px);aspect-ratio:1;border:1px solid #c2799438;border-radius:50%;transform:scaleY(.62) rotate(25deg)}.flower-screen:after{transform:scaleY(.62) rotate(-25deg)}.flower-screen>*{z-index:1}.sunflower{font-size:5rem;color:#d5a34f;text-shadow:0 7px 22px #b8853429}.flower-copy{max-width:570px;color:#71636a;font-size:1.05rem;line-height:1.95}.divider{color:#c27d96;letter-spacing:.2em}.italic{font-family:'Playfair Display',serif;font-style:italic;color:#8d7b83}
+.letter-screen{flex-direction:column;align-items:center;justify-content:center;padding:100px 18px 50px;background:radial-gradient(ellipse at top,#fbe8ee,#fffdfd 70%)}.letter{width:min(100%,680px);padding:clamp(28px,6vw,62px);border:1px solid #ead5dd;background:#fffffff0;box-shadow:0 20px 70px #52303f19;text-align:left}.letter .eyebrow{text-align:left}.stamp{display:grid;place-items:center;width:54px;height:54px;margin:32px 0 20px;border:1px solid #dca7b9;border-radius:50%;color:var(--deep);font:1.6rem 'Playfair Display',serif}.letter>p:not(.eyebrow):not(.script):not(.signoff){color:#756b71;font-size:.94rem;line-height:1.95;margin:20px 0}.signoff{margin:30px 0 40px;color:#8b707b;font:italic 1rem 'Playfair Display',serif;line-height:1.8}.signoff em{font-size:1.1rem}.letter footer{text-align:center;border-top:1px solid #f0e4e9;padding-top:20px;color:#a27a89;font-size:.58rem;letter-spacing:.15em}.text-button{margin-top:22px;background:transparent;border:0;color:#9b7785;padding:10px}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@media(max-width:650px){.topbar{padding:17px 18px}.section{padding:105px 16px 58px}.photos{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.photos figure{padding:7px 7px 12px}.photos figure:nth-child(even){margin-top:20px}.photos figcaption{font-size:.76rem}.reasons article{grid-template-columns:28px 1fr 16px;gap:10px;padding:18px 14px}.reasons p{font-size:.84rem}.letter{padding:26px 22px}.letter>p:not(.eyebrow):not(.script):not(.signoff){font-size:.89rem}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+.placeholder[hidden] {
+    display: none !important;
+}
+/* ======================================
+   GALAXIA ROMÁNTICA PARA BRENDA
+   ====================================== */
+
+.galaxy-screen {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 105px 20px 65px;
+  isolation: isolate;
+  color: #fff9fc;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at 50% 42%, #392747 0%, #211b32 43%, #11111f 100%);
+}
+
+.galaxy-content {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 760px);
+}
+
+.galaxy-eyebrow {
+  color: #f1c9dc;
+}
+
+.galaxy-title {
+  margin: 20px 0 16px;
+  color: #fff8fc;
+  font: 500 clamp(2.2rem, 6vw, 4.2rem)/1.15 'Playfair Display', serif;
+  letter-spacing: -.035em;
+}
+
+.galaxy-title em,
+.galaxy-reveal h3 em {
+  color: #f2b8d0;
+  font-style: italic;
+}
+
+.galaxy-intro {
+  width: min(100%, 500px);
+  margin: 0 auto;
+  color: #ded1e5;
+  font-size: .95rem;
+  line-height: 1.8;
+}
+
+/* Nubes de luz de la galaxia */
+
+.galaxy-nebula {
+  position: absolute;
+  z-index: -1;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  filter: blur(65px);
+  opacity: .28;
+  pointer-events: none;
+}
+
+.nebula-one {
+  top: 12%;
+  left: -140px;
+  background: #d77caf;
+  animation: nebulaDrift 12s ease-in-out infinite alternate;
+}
+
+.nebula-two {
+  right: -140px;
+  bottom: 5%;
+  background: #8b78d8;
+  animation: nebulaDrift 15s ease-in-out infinite alternate-reverse;
+}
+
+/* Estrellas decorativas */
+
+.galaxy-stars {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  color: #fff4fb;
+  text-shadow: 0 0 12px #f7c8ed, 0 0 25px #d8a7f7;
+  animation: starTwinkle 2.5s ease-in-out infinite alternate;
+}
+
+.star-1 { top: 12%; left: 12%; font-size: 22px; }
+.star-2 { top: 22%; right: 15%; font-size: 25px; animation-delay: .6s; }
+.star-3 { top: 42%; left: 5%; font-size: 18px; animation-delay: 1s; }
+.star-4 { top: 57%; right: 8%; font-size: 24px; animation-delay: .4s; }
+.star-5 { top: 75%; left: 15%; font-size: 20px; animation-delay: 1.4s; }
+.star-6 { top: 83%; right: 18%; font-size: 18px; animation-delay: .8s; }
+.star-7 { top: 34%; right: 28%; font-size: 13px; animation-delay: 1.7s; }
+.star-8 { top: 67%; left: 29%; font-size: 15px; animation-delay: .3s; }
+.star-9 { top: 17%; left: 43%; font-size: 13px; animation-delay: 1.2s; }
+.star-10 { top: 47%; right: 19%; font-size: 13px; animation-delay: .9s; }
+
+/* Constelación y estrellas que se pueden tocar */
+
+.constellation {
+  position: relative;
+  width: min(100%, 450px);
+  height: 300px;
+  margin: 8px auto 0;
+}
+
+.message-star {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border: 1px solid #f6d7ed80;
+  border-radius: 50%;
+  background: #f4c5e51c;
+  color: #ffe8fa;
+  font-size: 28px;
+  cursor: pointer;
+  box-shadow: 0 0 24px #df9bdb35;
+  transition: transform .25s, background .25s, box-shadow .25s;
+  animation: starTwinkle 2s ease-in-out infinite alternate;
+}
+
+.message-star:hover,
+.message-star:focus-visible {
+  transform: scale(1.15);
+  background: #f3c5e54a;
+  box-shadow: 0 0 32px #efa9ed8c;
+  outline: 2px solid #f4c5e5;
+  outline-offset: 3px;
+}
+
+.message-star small {
+  position: absolute;
+  right: -3px;
+  bottom: -4px;
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #f5d4e7;
+  color: #392747;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.message-star.discovered {
+  border-color: #f4c5e5;
+  background: #dca4df3d;
+  color: #fff;
+  box-shadow: 0 0 35px #f2b9ed80;
+}
+
+.message-star-one { top: 25px; left: 12%; }
+.message-star-two { top: 92px; right: 11%; animation-delay: .7s; }
+.message-star-three { bottom: 28px; left: 23%; animation-delay: 1.1s; }
+
+.constellation-line {
+  position: absolute;
+  z-index: 1;
+  height: 1px;
+  transform-origin: left center;
+  background: linear-gradient(90deg, #e8b6e8aa, #f3d9f422);
+}
+
+.line-one {
+  top: 67px;
+  left: 23%;
+  width: 65%;
+  transform: rotate(13deg);
+}
+
+.line-two {
+  top: 130px;
+  left: 24%;
+  width: 53%;
+  transform: rotate(37deg);
+}
+
+/* Corazón central */
+
+.galaxy-heart {
+  position: absolute;
+  z-index: 4;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 112px;
+  height: 112px;
+  padding: 0;
+  border: 1px solid #f6c8e88a;
+  border-radius: 50%;
+  background: radial-gradient(circle, #7b456d 0%, #4a2e53 68%, #30223f 100%);
+  color: white;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 25px #ec9ce875, 0 0 70px #b98ee849;
+  cursor: pointer;
+  animation: heartPulse 2s ease-in-out infinite;
+}
+
+.galaxy-heart:hover {
+  box-shadow: 0 0 38px #f8b9e8, 0 0 90px #b98ee87a;
+}
+
+.heart-symbol {
+  position: relative;
+  z-index: 2;
+  color: #ffc9e2;
+  font-size: 45px;
+  line-height: 1;
+  text-shadow: 0 0 18px #ffb3e9;
+}
+
+.heart-caption {
+  position: relative;
+  z-index: 2;
+  margin-top: 5px;
+  color: #fff1fb;
+  font-size: 11px;
+  letter-spacing: .08em;
+}
+
+.heart-glow {
+  position: absolute;
+  inset: -12px;
+  border: 1px solid #f0b8e54d;
+  border-radius: 50%;
+}
+
+/* Mensajes y sorpresa final */
+
+.star-counter {
+  margin: 0;
+  color: #f5d6e6;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.7;
+  text-shadow: 0 0 10px #e7a8e655;
+}
+
+.galaxy-message {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: min(100%, 480px);
+  min-height: 88px;
+  margin: 22px auto 0;
+  padding: 18px 20px;
+  border: 1px solid #f0c9e52b;
+  border-radius: 16px;
+  background: #ffffff0b;
+  text-align: left;
+}
+
+.galaxy-message p {
+  margin: 0;
+  color: #f0e4f3;
+  font-size: .9rem;
+  line-height: 1.8;
+}
+
+.message-sparkle {
+  color: #f5c6e8;
+  font-size: 22px;
+}
+
+.galaxy-reveal {
+  width: min(100%, 520px);
+  margin: 26px auto 0;
+  padding: 25px 22px;
+  border: 1px solid #f5c7e85c;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #ffffff12, #e7a8e61a);
+  box-shadow: 0 0 45px #d89ee21c;
+  animation: revealAppear .8s ease both;
+}
+
+.galaxy-reveal[hidden] {
+  display: none !important;
+}
+
+.galaxy-reveal h3 {
+  margin: 12px 0;
+  color: #fff8fc;
+  font: 500 clamp(1.9rem, 5vw, 2.7rem)/1.2 'Playfair Display', serif;
+}
+
+.galaxy-reveal > p:not(.eyebrow) {
+  color: #e9d9ee;
+  font-size: .93rem;
+  line-height: 1.9;
+}
+
+.galaxy-reveal .reveal-signature {
+  color: #f4bedb !important;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+}
+
+.galaxy-reveal .primary {
+  margin-top: 8px;
+  background: #f5d6e6;
+  color: #392747;
+}
+
+.galaxy-reveal .primary span {
+  color: #b85f8a;
+}
+
+.galaxy-hint {
+  margin: 25px 0 0;
+  color: #f3d9ed;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.8;
+  text-shadow: 0 0 12px #e7a8e655;
+  letter-spacing: 0.02em;
+}
+
+.galaxy-screen .primary:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+}
+
+@keyframes starTwinkle {
+  from { opacity: .5; filter: brightness(.8); }
+  to { opacity: 1; filter: brightness(1.4); }
+}
+
+@keyframes heartPulse {
+  0%, 100% { box-shadow: 0 0 25px #ec9ce875, 0 0 55px #b98ee849; }
+  50% { box-shadow: 0 0 38px #f5b7e8b5, 0 0 85px #b98ee87a; }
+}
+
+@keyframes nebulaDrift {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(40px, -25px) scale(1.15); }
+}
+
+@keyframes revealAppear {
+  from { opacity: 0; transform: translateY(18px) scale(.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 480px) {
+  .galaxy-screen {
+    padding: 100px 17px 48px;
+  }
+
+  .galaxy-intro {
+    font-size: .88rem;
+  }
+
+  .constellation {
+    height: 270px;
+  }
+
+  .message-star-one { left: 7%; }
+  .message-star-two { right: 6%; }
+  .message-star-three { left: 16%; }
+
+  .galaxy-heart {
+    width: 98px;
+    height: 98px;
+  }
+
+  .heart-symbol { font-size: 39px; }
+  .galaxy-message { padding: 15px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .galaxy-screen *,
+  .galaxy-screen *::before,
+  .galaxy-screen *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
